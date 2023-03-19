@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+Docker:
+docker build -t imagename .
+docker run -it --rm -p 8000:80 --name containerName imagename:tag
+
+Minikube:
+minikube start --driver=hyperv
+minikube docker-env
+minkube image ls
+minikube -p minikube docker-env
+docker image ls
+minikube image load myappimagename
+docker image ls
+kubectl run first-container --image=myappimagename --image-pull-policy=Never --restart=Never
+kubectl port-forward first-container 8080:80
+
+With Yaml file:
+kubectl apply -f yamlfilename.yaml
+minikube service demo-service --namespace=demo
+minikube service demo-service --url --namespace=demo
+
+Ingress:
+minikube addons enable ingress
+minikube addons enable ingress-dns
+
